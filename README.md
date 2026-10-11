@@ -59,11 +59,14 @@ A mistake in that file breaks every agent at once, and some mistakes are securit
 python3 --version
 ```
 
-**2. Install from a checkout.** The package isn't on PyPI. From the repo root:
+**2. Install from GitHub.** The package isn't on PyPI yet, so install it straight from this repo:
 
 ```bash
-uv tool install .      # or: pipx install .   or: pip install .
+uv tool install git+https://github.com/tusharck/poppy-validator
+# or: pipx install git+https://github.com/tusharck/poppy-validator
 ```
+
+From a local checkout, run `uv tool install .` in the repo root instead.
 
 **3. See what a valid file looks like.** This prints the spec's own example:
 
