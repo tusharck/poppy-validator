@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="250" viewBox="0 0 880 250" role="img" aria-label="How poppy validate works: transport, schema, rules, OAuth cross-check, then a report">
+  <title>How poppy validate works</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7c7c8a"/>
+    </marker>
+  </defs>
+  <rect width="880" height="250" rx="16" fill="#15151b"/>
+  <rect x="0.5" y="0.5" width="879" height="249" rx="16" fill="none" stroke="#2b2b36"/>
+  <g font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">
+    <text x="440" y="34" fill="#7c7c8a" font-size="13" text-anchor="middle">poppy validate &lt;domain | url | file | -&gt;</text>
+
+    <!-- stage boxes -->
+    <g font-size="12">
+      <rect x="24" y="58" width="150" height="128" rx="10" fill="#1b1b23" stroke="#5fc4d4"/>
+      <text x="99" y="84" fill="#5fc4d4" font-size="15" font-weight="700" text-anchor="middle">1 · Transport</text>
+      <text x="99" y="104" fill="#7c7c8a" text-anchor="middle">§3 · T rules</text>
+      <text x="99" y="132" fill="#d7d7de" text-anchor="middle">HTTPS only</text>
+      <text x="99" y="150" fill="#d7d7de" text-anchor="middle">follow redirects</text>
+      <text x="99" y="168" fill="#d7d7de" text-anchor="middle">every hop HTTPS</text>
+
+      <rect x="198" y="58" width="150" height="128" rx="10" fill="#1b1b23" stroke="#c792ea"/>
+      <text x="273" y="84" fill="#c792ea" font-size="15" font-weight="700" text-anchor="middle">2 · Schema</text>
+      <text x="273" y="104" fill="#7c7c8a" text-anchor="middle">§3.1 · JSON Schema</text>
+      <text x="273" y="132" fill="#d7d7de" text-anchor="middle">draft 2020-12</text>
+      <text x="273" y="150" fill="#d7d7de" text-anchor="middle">required fields</text>
+      <text x="273" y="168" fill="#d7d7de" text-anchor="middle">types · shapes</text>
+
+      <rect x="372" y="58" width="150" height="128" rx="10" fill="#1b1b23" stroke="#e8c06c"/>
+      <text x="447" y="84" fill="#e8c06c" font-size="15" font-weight="700" text-anchor="middle">3 · Rules</text>
+      <text x="447" y="104" fill="#7c7c8a" text-anchor="middle">§3.1 3.3 4.4 6 7.1</text>
+      <text x="447" y="132" fill="#d7d7de" text-anchor="middle">domain match</text>
+      <text x="447" y="150" fill="#d7d7de" text-anchor="middle">custom scopes</text>
+      <text x="447" y="168" fill="#d7d7de" text-anchor="middle">extension names</text>
+
+      <rect x="546" y="58" width="150" height="128" rx="10" fill="#1b1b23" stroke="#8fcf7a"/>
+      <text x="621" y="84" fill="#8fcf7a" font-size="15" font-weight="700" text-anchor="middle">4 · OAuth</text>
+      <text x="621" y="104" fill="#7c7c8a" text-anchor="middle">§3.2 · RFC 8414</text>
+      <text x="621" y="132" fill="#d7d7de" text-anchor="middle">issuer matches</text>
+      <text x="621" y="150" fill="#d7d7de" text-anchor="middle">poppy_domains</text>
+      <text x="621" y="168" fill="#d7d7de" text-anchor="middle">endpoints exist</text>
+
+      <rect x="720" y="58" width="136" height="128" rx="10" fill="#22222b" stroke="#d97757"/>
+      <text x="788" y="84" fill="#d97757" font-size="15" font-weight="700" text-anchor="middle">Report</text>
+      <text x="788" y="104" fill="#7c7c8a" text-anchor="middle">exit code</text>
+      <text x="788" y="132" fill="#ec6f7a" text-anchor="middle">✖ error → 1</text>
+      <text x="788" y="150" fill="#e8c06c" text-anchor="middle">▲ warning → 0</text>
+      <text x="788" y="168" fill="#6fa8f5" text-anchor="middle">• info → 0</text>
+    </g>
+
+    <!-- arrows -->
+    <g stroke="#7c7c8a" stroke-width="1.5" marker-end="url(#arrow)">
+      <line x1="176" y1="122" x2="195" y2="122"/>
+      <line x1="350" y1="122" x2="369" y2="122"/>
+      <line x1="524" y1="122" x2="543" y2="122"/>
+      <line x1="698" y1="122" x2="717" y2="122"/>
+    </g>
+
+    <!-- which modes run which stage -->
+    <g font-size="11" fill="#7c7c8a">
+      <rect x="24" y="200" width="150" height="4" rx="2" fill="#5fc4d4" opacity="0.6"/>
+      <text x="99" y="222" text-anchor="middle">domain / URL only</text>
+      <rect x="198" y="200" width="324" height="4" rx="2" fill="#e8c06c" opacity="0.6"/>
+      <text x="360" y="222" text-anchor="middle">every mode (file, stdin, domain, URL)</text>
+      <rect x="546" y="200" width="150" height="4" rx="2" fill="#8fcf7a" opacity="0.6"/>
+      <text x="621" y="222" text-anchor="middle">domain / URL, or --check-oauth</text>
+      <text x="621" y="238" text-anchor="middle">off with --no-network</text>
+    </g>
+  </g>
+</svg>

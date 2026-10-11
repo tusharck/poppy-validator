@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="230" viewBox="0 0 880 230" role="img" aria-label="poppy-validator: checks /.well-known/poppy.json against Personal Agent Protocol draft 0.1">
+  <title>poppy-validator</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1b23"/>
+      <stop offset="1" stop-color="#15151b"/>
+    </linearGradient>
+    <linearGradient id="petal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f08a72"/>
+      <stop offset="1" stop-color="#d9534f"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d97757" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#d97757"/>
+      <stop offset="1" stop-color="#d97757" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="880" height="230" rx="16" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="879" height="229" rx="16" fill="none" stroke="#2b2b36"/>
+
+  <!-- poppy flower with a check mark -->
+  <g transform="translate(118 115)">
+    <g fill="url(#petal)">
+      <ellipse cx="0" cy="-30" rx="30" ry="34"/>
+      <ellipse cx="30" cy="2" rx="34" ry="30"/>
+      <ellipse cx="0" cy="32" rx="30" ry="34"/>
+      <ellipse cx="-30" cy="2" rx="34" ry="30"/>
+    </g>
+    <g fill="#c2413d" opacity="0.55">
+      <ellipse cx="18" cy="-16" rx="20" ry="18"/>
+      <ellipse cx="-18" cy="20" rx="20" ry="18"/>
+    </g>
+    <circle r="23" fill="#15151b"/>
+    <circle r="23" fill="none" stroke="#2b2b36" stroke-width="2"/>
+    <path d="M-10 1 l7 8 l14 -17" fill="none" stroke="#8fcf7a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">
+    <text x="232" y="92" fill="#ffffff" font-size="40" font-weight="700">poppy-validator</text>
+    <text x="234" y="124" fill="#7c7c8a" font-size="15">lint the discovery file personal agents read first</text>
+    <rect x="232" y="142" width="600" height="1.5" fill="url(#rule)"/>
+    <text x="234" y="176" font-size="16" xml:space="preserve"><tspan fill="#8fcf7a">https://</tspan><tspan fill="#5fc4d4">{domain}</tspan><tspan fill="#d7d7de">/.well-known/</tspan><tspan fill="#e8c06c" font-weight="700">poppy.json</tspan></text>
+    <g font-size="12">
+      <rect x="232" y="192" width="104" height="22" rx="11" fill="#2b2b36"/>
+      <text x="284" y="207" fill="#ec6f7a" text-anchor="middle">MUST → error</text>
+      <rect x="344" y="192" width="122" height="22" rx="11" fill="#2b2b36"/>
+      <text x="405" y="207" fill="#e8c06c" text-anchor="middle">SHOULD → warning</text>
+      <rect x="474" y="192" width="96" height="22" rx="11" fill="#2b2b36"/>
+      <text x="522" y="207" fill="#6fa8f5" text-anchor="middle">MAY → info</text>
+      <rect x="578" y="192" width="132" height="22" rx="11" fill="#3a2a22"/>
+      <text x="644" y="207" fill="#d97757" text-anchor="middle">spec draft 0.1</text>
+    </g>
+  </g>
+</svg>

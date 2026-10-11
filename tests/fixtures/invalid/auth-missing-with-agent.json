@@ -1,0 +1,30 @@
+{
+  "protocol_version": "0.1",
+  "organization": {
+    "name": "Example Company",
+    "domain": "example.com"
+  },
+  "agent": {
+    "protocols": [
+      {
+        "type": "poppy",
+        "endpoint": "https://api.example.com/poppy/conversations"
+      }
+    ]
+  },
+  "web": {
+    "browser_session_endpoint": "https://example.com/poppy/browser-session"
+  },
+  "apis": [
+    {
+      "type": "openapi",
+      "url": "https://api.example.com/openapi.json",
+      "description": "Orders, returns, and exchanges"
+    },
+    {
+      "type": "mcp",
+      "url": "https://mcp.example.com/mcp",
+      "description": "Product search and sizing"
+    }
+  ]
+}

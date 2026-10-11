@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:poppy-validator:schema:poppy-0.1",
+  "title": "poppy.json (Personal Agent Protocol draft 0.1)",
+  "description": "Structural rules for the discovery document in section 3 of https://personalagentprotocol.org/spec. Hand-authored by poppy-validator; not an official schema. Unknown fields are allowed because the spec says implementations MUST ignore them. Each subschema's x-rule names the poppy-validator rule a failure maps to. Patterns end in (?!\\n)$ so they anchor at the true end of the value in both ECMA-262 and Python, where a bare $ also matches before a trailing newline.",
+  "type": "object",
+  "x-rule": "J001",
+  "required": ["protocol_version", "organization"],
+  "x-required-rules": { "protocol_version": "V001", "organization": "O001" },
+  "anyOf": [
+    { "required": ["agent"] },
+    { "required": ["apis"] },
+    { "required": ["web"] }
+  ],
+  "x-anyOf-rule": "R001",
+  "x-anyOf-message": "at least one of agent, apis, or web must be present",
+  "allOf": [
+    {
+      "if": {
+        "anyOf": [
+          { "required": ["agent"] },
+          { "required": ["apis"] },
+          {
+            "required": ["web"],
+            "properties": { "web": { "type": "object", "required": ["browser_session_endpoint"] } }
+          }
+        ]
+      },
+      "then": {
+        "x-rule": "R002",
+        "x-message": "auth is required because agent, apis, or web.browser_session_endpoint is present",
+        "required": ["auth"]
+      }
+    }
+  ],
+  "properties": {
+    "protocol_version": {
+      "x-rule": "V001",
+      "x-message": "protocol_version must be a \"major.minor\" string, such as \"0.1\"",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?!\\n)$"
+    },
+    "organization": {
+      "x-rule": "O001",
+      "type": "object",
+      "required": ["name", "domain"],
+      "properties": {
+        "name": { "x-rule": "O001", "type": "string" },
+        "domain": { "x-rule": "O001", "type": "string", "minLength": 1 }
+      }
+    },
+    "auth": { "$ref": "#/$defs/auth" },
+    "agent": { "$ref": "#/$defs/agent" },
+    "apis": {
+      "x-rule": "P001",
+      "type": "array",
+      "items": { "$ref": "#/$defs/api" }
+    },
+    "web": {
+      "x-rule": "W001",
+      "type": "object",
+      "properties": {
+        "browser_session_endpoint": { "x-rule": "W001", "type": "string" }
+      }
+    },
+    "extensions": {
+      "x-rule": "E001",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/extension" }
+    }
+  },
+  "$defs": {
+    "httpsUrl": {
+      "type": "string",
+      "pattern": "^https://[^\\s/?#@]+(?:[/?#][^\\s]*)?(?!\\n)$"
+    },
+    "scopeList": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "auth": {
+      "x-rule": "A001",
+      "type": "object",
+      "required": ["issuer"],
+      "properties": {
+        "issuer": {
+          "x-rule": "A002",
+          "x-message": "auth.issuer must be an HTTPS URL",
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "direct": { "$ref": "#/$defs/signInType" },
+        "device": { "$ref": "#/$defs/signInType" },
+        "mediated": {
+          "x-rule": "A005",
+          "type": "object",
+          "required": ["endpoint", "fields", "scopes"],
+          "properties": {
+            "endpoint": { "x-rule": "A005", "type": "string" },
+            "fields": {
+              "x-rule": "A005",
+              "type": "array",
+              "items": { "$ref": "#/$defs/mediatedField" }
+            },
+            "scopes": { "x-rule": "A005", "$ref": "#/$defs/scopeList" }
+          }
+        },
+        "custom_scopes": {
+          "x-rule": "S004",
+          "type": "object",
+          "additionalProperties": { "x-rule": "S004", "type": "string" }
+        }
+      }
+    },
+    "signInType": {
+      "x-rule": "A004",
+      "type": "object",
+      "required": ["scopes"],
+      "properties": {
+        "scopes": { "x-rule": "A004", "$ref": "#/$defs/scopeList" }
+      }
+    },
+    "mediatedField": {
+      "x-rule": "A006",
+      "type": "object",
+      "required": ["name", "label", "secret"],
+      "properties": {
+        "name": { "x-rule": "A006", "type": "string", "minLength": 1 },
+        "label": { "x-rule": "A006", "type": "string" },
+        "secret": { "x-rule": "A006", "type": "boolean" }
+      }
+    },
+    "agent": {
+      "x-rule": "G001",
+      "type": "object",
+      "required": ["protocols"],
+      "properties": {
+        "protocols": {
+          "x-rule": "G001",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "x-rule": "G002",
+            "type": "object",
+            "required": ["type", "endpoint"],
+            "properties": {
+              "type": { "x-rule": "G002", "type": "string", "minLength": 1 },
+              "endpoint": {
+                "x-rule": "G002",
+                "x-message": "agent.protocols[].endpoint must be an HTTPS URL",
+                "$ref": "#/$defs/httpsUrl"
+              }
+            }
+          }
+        }
+      }
+    },
+    "api": {
+      "x-rule": "P001",
+      "type": "object",
+      "required": ["type", "url", "description"],
+      "properties": {
+        "type": { "x-rule": "P001", "type": "string" },
+        "url": { "x-rule": "P001", "type": "string", "minLength": 1 },
+        "description": { "x-rule": "P001", "type": "string" }
+      }
+    },
+    "extension": {
+      "x-rule": "E001",
+      "type": "object",
+      "required": ["version"],
+      "x-required-rules": { "version": "E003" },
+      "properties": {
+        "version": {
+          "x-rule": "E003",
+          "x-message": "extension version must be a string or integer major version",
+          "type": ["string", "integer"]
+        }
+      }
+    }
+  }
+}

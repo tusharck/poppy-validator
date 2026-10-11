@@ -1,0 +1,8 @@
+{
+  "protocol_version": "0.1",
+  "organization": {
+    "name": "Brochure Co",
+    "domain": "brochure.example"
+  },
+  "web": {}
+}

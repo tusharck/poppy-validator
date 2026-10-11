@@ -1,0 +1,10 @@
+{
+  "issuer": "https://auth.example.com",
+  "token_endpoint": "https://auth.example.com/oauth/token",
+  "revocation_endpoint": "https://auth.example.com/oauth/revoke",
+  "authorization_endpoint": "https://auth.example.com/oauth/authorize",
+  "poppy_domains": [
+    "example.com",
+    "example.co.uk"
+  ]
+}

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="768" viewBox="0 0 820 768" role="img" aria-label="poppy-validator · failing">
+<title>poppy-validator · failing</title>
+<rect width="100%" height="100%" rx="10" fill="#15151b"/>
+<path d="M0 10 a10 10 0 0 1 10 -10 h800 a10 10 0 0 1 10 10 v24 h-820 z" fill="#22222b"/>
+<circle cx="20" cy="17.0" r="5.5" fill="#ec6f7a"/>
+<circle cx="38" cy="17.0" r="5.5" fill="#e8c06c"/>
+<circle cx="56" cy="17.0" r="5.5" fill="#8fcf7a"/>
+<text x="410" y="21.5" fill="#7c7c8a" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" text-anchor="middle">poppy-validator · failing</text>
+<g font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" xml:space="preserve">
+<text x="20" y="62"><tspan fill="#8fcf7a" font-weight="700">$ </tspan><tspan fill="#d7d7de" font-weight="700">poppy validate example.com</tspan></text>
+<text x="20" y="102"><tspan fill="#d7d7de" font-weight="700">poppy validate </tspan><tspan fill="#5fc4d4">example.com</tspan></text>
+<text x="20" y="122"><tspan fill="#7c7c8a">  requested  https://example.com/.well-known/poppy.json</tspan></text>
+<text x="20" y="142"><tspan fill="#7c7c8a">  served by  https://cdn.example.net/example.com/poppy.json</tspan></text>
+<text x="20" y="162"><tspan fill="#7c7c8a">  spec       Personal Agent Protocol draft 0.1 · https://personalagentprotocol.org/spec</tspan></text>
+<text x="20" y="182"><tspan fill="#d7d7de">  checks     </tspan><tspan fill="#8fcf7a">✔ transport</tspan><tspan fill="#d7d7de">   </tspan><tspan fill="#ec6f7a">✖ document</tspan><tspan fill="#d7d7de">   </tspan><tspan fill="#ec6f7a">✖ oauth</tspan></text>
+<text x="20" y="222"><tspan fill="#ec6f7a" font-weight="700">Errors (4)</tspan><tspan fill="#7c7c8a">  MUST</tspan></text>
+<text x="20" y="242"><tspan fill="#d7d7de">  </tspan><tspan fill="#ec6f7a">✖</tspan><tspan fill="#d7d7de"> </tspan><tspan fill="#ec6f7a" font-weight="700">E002</tspan><tspan fill="#d7d7de">  extension &#x27;gift-wrap&#x27; isn&#x27;t defined by the spec (known: operations); other</tspan></text>
+<text x="20" y="262"><tspan fill="#d7d7de">         extensions MUST be named with a domain prefix, such as example.com/gift-wrap</tspan></text>
+<text x="20" y="282"><tspan fill="#d7d7de">         </tspan><tspan fill="#7c7c8a">§3.3 · extensions · /extensions/gift-wrap</tspan></text>
+<text x="20" y="302"><tspan fill="#d7d7de">  </tspan><tspan fill="#ec6f7a">✖</tspan><tspan fill="#d7d7de"> </tspan><tspan fill="#ec6f7a" font-weight="700">O002</tspan><tspan fill="#d7d7de">  organization.domain is &#x27;example-shop.com&#x27; but the well-known URL was requested from</tspan></text>
+<text x="20" y="322"><tspan fill="#d7d7de">         &#x27;example.com&#x27;; they MUST match, ignoring a leading www.</tspan></text>
+<text x="20" y="342"><tspan fill="#d7d7de">         </tspan><tspan fill="#7c7c8a">§3.1 · organization · /organization/domain</tspan></text>
+<text x="20" y="362"><tspan fill="#d7d7de">  </tspan><tspan fill="#ec6f7a">✖</tspan><tspan fill="#d7d7de"> </tspan><tspan fill="#ec6f7a" font-weight="700">OA03</tspan><tspan fill="#d7d7de">  metadata poppy_domains [&#x27;example.com&#x27;, &#x27;example.co.uk&#x27;] doesn&#x27;t include</tspan></text>
+<text x="20" y="382"><tspan fill="#d7d7de">         organization.domain &#x27;example-shop.com&#x27;; otherwise any domain could claim this issuer</tspan></text>
+<text x="20" y="402"><tspan fill="#d7d7de">         </tspan><tspan fill="#7c7c8a">§3.2 · OAuth server · /organization/domain</tspan></text>
+<text x="20" y="422"><tspan fill="#d7d7de">  </tspan><tspan fill="#ec6f7a">✖</tspan><tspan fill="#d7d7de"> </tspan><tspan fill="#ec6f7a" font-weight="700">OA06</tspan><tspan fill="#d7d7de">  metadata has no authorization_endpoint because auth.direct is present</tspan></text>
+<text x="20" y="442"><tspan fill="#d7d7de">         </tspan><tspan fill="#7c7c8a">§3.2 · OAuth server · /auth</tspan></text>
+<text x="20" y="482"><tspan fill="#6fa8f5" font-weight="700">Info (3)</tspan><tspan fill="#7c7c8a">  advisory (fails --strict) / MAY / context</tspan></text>
+<text x="20" y="502"><tspan fill="#d7d7de">  </tspan><tspan fill="#6fa8f5">•</tspan><tspan fill="#d7d7de"> </tspan><tspan fill="#6fa8f5" font-weight="700">S001</tspan><tspan fill="#d7d7de">  custom scope &#x27;loyalty_points&#x27; is used in auth.device.scopes but not described in</tspan></text>
+<text x="20" y="522"><tspan fill="#d7d7de">         auth.custom_scopes (advisory: the spec asks Companies to describe each one, without</tspan></text>
+<text x="20" y="542"><tspan fill="#d7d7de">         a MUST or SHOULD)</tspan></text>
+<text x="20" y="562"><tspan fill="#d7d7de">         </tspan><tspan fill="#7c7c8a">§3.1, 4.4 · Scopes · /auth/device/scopes/2 · advisory</tspan></text>
+<text x="20" y="582"><tspan fill="#d7d7de">  </tspan><tspan fill="#6fa8f5">•</tspan><tspan fill="#d7d7de"> </tspan><tspan fill="#6fa8f5" font-weight="700">T004</tspan><tspan fill="#d7d7de">  followed 1 redirect(s): https://example.com/.well-known/poppy.json -&gt;</tspan></text>
+<text x="20" y="602"><tspan fill="#d7d7de">         https://cdn.example.net/example.com/poppy.json; organization.domain is checked</tspan></text>
+<text x="20" y="622"><tspan fill="#d7d7de">         against &#x27;example.com&#x27;, the host that was requested</tspan></text>
+<text x="20" y="642"><tspan fill="#d7d7de">         </tspan><tspan fill="#7c7c8a">§3 · Transport</tspan></text>
+<text x="20" y="662"><tspan fill="#d7d7de">  </tspan><tspan fill="#6fa8f5">•</tspan><tspan fill="#d7d7de"> </tspan><tspan fill="#6fa8f5" font-weight="700">U001</tspan><tspan fill="#d7d7de">  unrecognized field &#x27;support_phone&#x27; in the top level; Personal Agents ignore it</tspan></text>
+<text x="20" y="682"><tspan fill="#d7d7de">         </tspan><tspan fill="#7c7c8a">§3.3 · Unknown fields · /support_phone</tspan></text>
+<text x="20" y="722"><tspan fill="#ec6f7a" font-weight="700">✖ invalid</tspan><tspan fill="#d7d7de">  4 errors, 0 warnings, 3 info</tspan></text>
+<text x="20" y="742"><tspan fill="#7c7c8a">Draft 0.1: the spec and these rules will change. Not an official conformance tool.</tspan></text>
+</g></svg>

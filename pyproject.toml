@@ -1,0 +1,32 @@
+[project]
+name = "poppy-validator"
+version = "0.1.0"
+description = "Validate a company's poppy.json (Personal Agent Protocol discovery file) against the draft 0.1 spec."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["jsonschema>=4.18"]
+keywords = ["poppy", "personal-agent-protocol", "well-known", "validator", "oauth"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.scripts]
+poppy = "poppy_validator.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/poppy_validator"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,10 @@
+{
+  "protocol_version": "0.1",
+  "organization": {
+    "name": "Example Company",
+    "domain": "example.com"
+  },
+  "web": {
+    "browser_session_endpoint": "https://example.com/poppy/browser-session"
+  }
+}
