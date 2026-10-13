@@ -6,7 +6,7 @@
 
 **A command-line linter for `poppy.json`, the discovery file that tells personal agents how to work with your company.**
 
-*64 rules · 4 check stages · every rule tied to a section of the Personal Agent Protocol draft 0.1 · unofficial*
+*64 rules · 4 check stages · every rule tied to a section of the Personal Agent Protocol draft 0.1*
 
 ![Python](https://img.shields.io/badge/python-3.11%2B-D97757?style=flat-square)
 ![Spec](https://img.shields.io/badge/spec-draft%200.1-8A63D2?style=flat-square)
